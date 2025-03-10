@@ -16,26 +16,37 @@ const stripePromise = loadStripe(
 );
 function Routing() {
   return (
-    <Router>
+    <Router basename="/Amazon-Clone-2025/">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/auth" element={<Auth />} />
-        <Route path="/payments" element={
-          <ProtectedRoute msg={"you must log in to pay"} redirect={"/payments"}>
-            <Elements stripe={stripePromise}>
-          <Payment />
-          </Elements>
-          </ProtectedRoute>
-           } />
-        <Route path="/orders" element={
-          <ProtectedRoute msg = {"you must login to access your orders"} redirect={"/orders"}>
-<Orders />
-          </ProtectedRoute>
-          } />
+        <Route
+          path="/payments"
+          element={
+            <ProtectedRoute
+              msg={"you must log in to pay"}
+              redirect={"/payments"}
+            >
+              <Elements stripe={stripePromise}>
+                <Payment />
+              </Elements>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <ProtectedRoute
+              msg={"you must login to access your orders"}
+              redirect={"/orders"}
+            >
+              <Orders />
+            </ProtectedRoute>
+          }
+        />
         <Route path="category/:categoryName" element={<Results />} />
         <Route path="products/:productId" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
-        
       </Routes>
     </Router>
   );
