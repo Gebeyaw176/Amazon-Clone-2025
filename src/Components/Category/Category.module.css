@@ -1,0 +1,106 @@
+/* Category Styling */
+.category {
+  height: 250px; /* Smaller height */
+  width: 250px; /* Smaller width */
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.category img {
+  width: 100%;
+  object-fit: contain;
+  max-height: 180px; /* Adjusted for smaller size */
+  padding: 0px 10px;
+}
+
+.category a {
+  text-decoration: none;
+  color: rgb(35, 35, 35);
+}
+
+.category h2,
+.category p {
+  padding: 5px;
+  margin-left: 15px;
+}
+
+.category p {
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(9, 132, 209);
+}
+
+/* Category Container - Smaller Items Fit in One Row */
+.category_container {
+  position: relative;
+  margin-top: -5%;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Fits more items in one row */
+  max-width: 1400px;
+  gap: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  place-items: center;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 1024px) {
+  .category_container {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(180px, 1fr)
+    ); /* Smaller on tablets */
+    gap: 15px;
+  }
+
+  .category {
+    width: 220px;
+    height: auto;
+  }
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .category_container {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(150px, 1fr)
+    ); /* Smaller for mobile */
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .category {
+    width: 180px;
+    height: auto;
+  }
+}
+
+/* Extra Small Screens (Phones < 480px) */
+@media (max-width: 480px) {
+  .category_container {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(120px, 1fr)
+    ); /* Smallest size */
+    gap: 8px;
+  }
+
+  .category {
+    width: 150px;
+  }
+}
