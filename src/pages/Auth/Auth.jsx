@@ -131,7 +131,7 @@ function Auth() {
           {loading.signUp ? (
             <ClipLoader color="#000" size={15}></ClipLoader>
           ) : (
-            "Creat Your Amazon Account"
+            "Create Your Amazon Account"
           )}
         </button>
         {error && (
